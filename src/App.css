@@ -26,7 +26,7 @@ h1 {
 .menu,
 .quiz,
 .endscreen {
-  width: 500px;
+  width: 100%;
   height: 500px;
   border-radius: 10px;
   background-color: #FEFEF6;
@@ -83,4 +83,12 @@ button.next:hover {
 button.button.activeButton {
   background-color: #F08D00;
   color: #000;
+}
+
+@media screen and (min-width: 560px) {
+.menu,
+.quiz,
+.endscreen {
+  width: 500px;
+  }
 }
