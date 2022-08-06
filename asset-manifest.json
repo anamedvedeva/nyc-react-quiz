@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/nyc-react-quiz/static/css/main.4d781f7b.css",
+    "main.css": "/nyc-react-quiz/static/css/main.9ff9f5da.css",
     "main.js": "/nyc-react-quiz/static/js/main.dfa973fe.js",
     "static/media/BackgroundImage.jpg": "/nyc-react-quiz/static/media/BackgroundImage.2289b15c692969602480.jpg",
     "index.html": "/nyc-react-quiz/index.html",
-    "main.4d781f7b.css.map": "/nyc-react-quiz/static/css/main.4d781f7b.css.map",
+    "main.9ff9f5da.css.map": "/nyc-react-quiz/static/css/main.9ff9f5da.css.map",
     "main.dfa973fe.js.map": "/nyc-react-quiz/static/js/main.dfa973fe.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d781f7b.css",
+    "static/css/main.9ff9f5da.css",
     "static/js/main.dfa973fe.js"
   ]
 }
