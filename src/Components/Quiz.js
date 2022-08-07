@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Questions } from '../Helpers/QuestionBank';
 import { QuizContext } from '../Helpers/Contexts';
 
@@ -7,12 +7,27 @@ function Quiz() {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [optionChosen, setOptionChosen] = useState('');
   const [active, setActive] = useState('');
+  const [error, setError] = useState(false);
 
   const nextQuestion = () => {
+
+    console.log(active);
+
     if (Questions[currQuestion].answer === optionChosen) {
       setScore(score + 1);
     }
-    setCurrQuestion(currQuestion + 1);
+
+    if (active !== '') {
+      setCurrQuestion(currQuestion + 1);
+      console.log('answer was chosen');
+      setError(false);
+    } else {
+      setCurrQuestion(currQuestion);
+      console.log('No answer was chosen');
+      console.log(active);
+      setError(true);
+    }
+
     setActive('');
   };
 
@@ -21,8 +36,18 @@ function Quiz() {
       setScore(score + 1);
     }
 
-    setGameState('endScreen');
+    console.log(active);
 
+    if (active !== '') {
+      console.log('answer was chosen');
+      setError(false);
+      setGameState('endScreen');
+    } else {
+      console.log('No answer was chosen');
+      console.log(active);
+      setError(true);
+      setGameState('quiz');
+    }
   }
 
   return (
@@ -33,6 +58,8 @@ function Quiz() {
         <button className={`button ${active === "Second" ? "activeButton" : ""}`} onClick={() => { setActive("Second"); setOptionChosen('2') }}>{Questions[currQuestion].option2}</button>
         <button className={`button ${active === "Third" ? "activeButton" : ""}`} onClick={() => { setActive("Third"); setOptionChosen('3') }}>{Questions[currQuestion].option3}</button>
       </div>
+
+      {error ? <div className='error-msg'><p>Please select an answer.</p></div> : null}
 
       {currQuestion === Questions.length - 1 ? (
         <button onClick={finishQuiz} className="next">Get Your Score</button>
